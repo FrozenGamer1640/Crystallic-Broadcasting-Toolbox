@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://d0pcr3wxmydxy"]
 
-[ext_resource type="PackedScene" uid="uid://cfo2y5gmalqlv" path="res://Classes/Box/main_menu_box.tscn" id="1_asmya"]
-[ext_resource type="Texture2D" uid="uid://irwxpqn23s6l" path="res://Assets/Container test.svg" id="1_ydhfv"]
-[ext_resource type="Texture2D" uid="uid://bgc0c6ak0rovh" path="res://Assets/ButtonTest(old).svg" id="2_vl16w"]
+[ext_resource type="PackedScene" uid="uid://cfo2y5gmalqlv" path="res://Classes/Generic/DiagonalMenuBox.tscn" id="1_asmya"]
+[ext_resource type="Texture2D" uid="uid://r2yiyjbks43g" path="res://Assets/Container test.svg" id="1_ydhfv"]
+[ext_resource type="Texture2D" path="res://Assets/ButtonTest(old).svg" id="2_vl16w"]
 
 [node name="HBoxContainer" type="HBoxContainer"]
 clip_contents = true

@@ -1,0 +1,13 @@
+[gd_scene load_steps=4 format=3 uid="uid://bbanv1tf1fs8c"]
+
+[ext_resource type="PackedScene" uid="uid://cfo2y5gmalqlv" path="res://Classes/Generic/DiagonalMenuBox.tscn" id="1_q6myc"]
+[ext_resource type="Texture2D" uid="uid://r2yiyjbks43g" path="res://Assets/Container test.svg" id="2_gnml0"]
+[ext_resource type="PackedScene" uid="uid://dtqtmpf1cuxr1" path="res://Classes/DiagonalButton/twitch_tab.tscn" id="3_caije"]
+
+[node name="DiagonalMenuBox" instance=ExtResource("1_q6myc")]
+
+[node name="TextureRect" parent="." index="0"]
+texture = ExtResource("2_gnml0")
+
+[node name="DiagonalButton" parent="TextureRect/ScrollContainer/VBoxContainer" index="0" instance=ExtResource("3_caije")]
+layout_mode = 2

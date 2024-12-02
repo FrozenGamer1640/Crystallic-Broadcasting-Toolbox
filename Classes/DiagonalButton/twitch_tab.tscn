@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://dtqtmpf1cuxr1"]
+
+[ext_resource type="PackedScene" uid="uid://ij4jyaw7lana" path="res://Classes/Generic/DiagonalButton.tscn" id="1_qphxo"]
+
+[node name="DiagonalButton" instance=ExtResource("1_qphxo")]
+
+[node name="Label" parent="Container/TextureButton/VBoxContainer/Title" index="0"]
+text = "Twitch"
+
+[node name="Label" parent="Container/TextureButton/VBoxContainer/Description ln 1" index="0"]
+text = "All Twitch related features"

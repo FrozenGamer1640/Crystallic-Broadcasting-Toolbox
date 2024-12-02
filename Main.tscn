@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://bhcuk8jlqvm6o"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_r3p1c"]
-[ext_resource type="PackedScene" uid="uid://cfo2y5gmalqlv" path="res://Classes/Box/main_menu_box.tscn" id="2_oyo6i"]
+[ext_resource type="PackedScene" uid="uid://cfo2y5gmalqlv" path="res://Classes/Generic/DiagonalMenuBox.tscn" id="2_oyo6i"]
 
 [node name="MainContainer" type="Control"]
 clip_contents = true
