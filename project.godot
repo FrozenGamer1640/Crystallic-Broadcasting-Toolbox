@@ -19,7 +19,7 @@ config/icon="res://icon.svg"
 [display]
 
 window/size/viewport_width=1280
-window/size/viewport_height=720
+window/size/viewport_height=360
 window/subwindows/embed_subwindows=false
 window/per_pixel_transparency/allowed=true
 window/emulate_touch_from_mouse=false

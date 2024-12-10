@@ -1,0 +1,40 @@
+[gd_scene load_steps=2 format=3 uid="uid://baqr1i4bahw"]
+
+[ext_resource type="PackedScene" uid="uid://bff0nn7eirfk6" path="res://Classes/DiagonalMenuBox/main_box.tscn" id="1_an6vk"]
+
+[node name="FullActionsMenu" type="CanvasLayer"]
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="MainPanel" type="Panel" parent="MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/MainPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_force_pass_scroll_events = false
+horizontal_scroll_mode = 3
+vertical_scroll_mode = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/MainPanel/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 3
+alignment = 1
+
+[node name="MainBox" parent="MarginContainer/MainPanel/ScrollContainer/HBoxContainer" instance=ExtResource("1_an6vk")]
+layout_mode = 2
