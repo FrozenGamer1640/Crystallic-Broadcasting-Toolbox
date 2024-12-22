@@ -1,8 +1,15 @@
-[gd_scene load_steps=2 format=3 uid="uid://dtqtmpf1cuxr1"]
+[gd_scene load_steps=3 format=3 uid="uid://dtqtmpf1cuxr1"]
 
-[ext_resource type="PackedScene" uid="uid://ij4jyaw7lana" path="res://Classes/Generic/DiagonalButton.tscn" id="1_qphxo"]
+[ext_resource type="PackedScene" uid="uid://ij4jyaw7lana" path="res://Classes/Generic/DiagonalButtons/DiagonalButton.tscn" id="1_qphxo"]
+[ext_resource type="Script" path="res://Classes/Generic/DiagonalButtons/FolderDiagonalButton.gd" id="2_ypfj8"]
 
-[node name="DiagonalButton" instance=ExtResource("1_qphxo")]
+[node name="TwitchTab" node_paths=PackedStringArray("texture_button") instance=ExtResource("1_qphxo")]
+script = ExtResource("2_ypfj8")
+TargetBoxID = 2
+texture_button = NodePath("Container/TextureButton")
+
+[node name="TextureButton" parent="Container" index="0"]
+toggle_mode = true
 
 [node name="Label" parent="Container/TextureButton/VBoxContainer/Title" index="0"]
 text = "Twitch"

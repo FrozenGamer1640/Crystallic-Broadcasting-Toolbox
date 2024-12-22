@@ -1,9 +1,15 @@
-[gd_scene load_steps=2 format=3 uid="uid://bhcuk8jlqvm6o"]
+[gd_scene load_steps=5 format=3 uid="uid://bhcuk8jlqvm6o"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_r3p1c"]
+[ext_resource type="PackedScene" uid="uid://baqr1i4bahw" path="res://Classes/FullActionsMenu/full_actions_menu.tscn" id="2_kjkg1"]
+[ext_resource type="Script" path="res://Classes/Generic/SmoothScrollContainer.gd" id="2_vllol"]
+[ext_resource type="Texture2D" uid="uid://bx1u3bksrlo2f" path="res://Assets/Button test.svg" id="3_ao3bp"]
 
-[node name="RootNode" type="Node"]
+[node name="RootNode" type="Node" node_paths=PackedStringArray("twitch_auth_link", "FAM_on_off", "full_actions_menu")]
 script = ExtResource("1_r3p1c")
+twitch_auth_link = NodePath("Control/GridContainer/LinkButton")
+FAM_on_off = NodePath("Control/GridContainer/Window On_off")
+full_actions_menu = NodePath("FullActionsMenu")
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
@@ -38,4 +44,102 @@ underline = 2
 layout_mode = 2
 text = "Local Server"
 
+[node name="Window On_off" type="CheckButton" parent="Control/GridContainer"]
+layout_mode = 2
+text = "Window on/off 1"
+
+[node name="HScrollBar" type="HScrollBar" parent="Control"]
+z_index = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.05
+anchor_top = 0.9
+anchor_right = 0.95
+anchor_bottom = 0.911111
+offset_left = -4.0
+offset_top = -4.0
+offset_right = 4.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+max_value = 1.0
+page = 0.575397
+metadata/_edit_use_anchors_ = true
+
+[node name="Container" type="Container" parent="Control/HScrollBar" node_paths=PackedStringArray("h_slider", "control_ref")]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = -6.0
+anchor_right = 1.0
+anchor_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_vllol")
+h_slider = NodePath("..")
+control_ref = NodePath("Control")
+
+[node name="Control" type="Control" parent="Control/HScrollBar/Container"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/HScrollBar/Container/Control"]
+layout_mode = 2
+anchor_bottom = 1.0
+offset_top = -4.00009
+offset_right = 2016.0
+offset_bottom = 4.00009
+grow_vertical = 2
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="Control/HScrollBar/Container/Control/HBoxContainer"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+texture = ExtResource("3_ao3bp")
+expand_mode = 5
+stretch_mode = 4
+
+[node name="TextureRect2" type="TextureRect" parent="Control/HScrollBar/Container/Control/HBoxContainer"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+texture = ExtResource("3_ao3bp")
+expand_mode = 5
+stretch_mode = 4
+
+[node name="TextureRect3" type="TextureRect" parent="Control/HScrollBar/Container/Control/HBoxContainer"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+texture = ExtResource("3_ao3bp")
+expand_mode = 5
+stretch_mode = 4
+
+[node name="TextureRect4" type="TextureRect" parent="Control/HScrollBar/Container/Control/HBoxContainer"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+texture = ExtResource("3_ao3bp")
+expand_mode = 5
+stretch_mode = 4
+
+[node name="TextureRect5" type="TextureRect" parent="Control/HScrollBar/Container/Control/HBoxContainer"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+texture = ExtResource("3_ao3bp")
+expand_mode = 5
+stretch_mode = 4
+
+[node name="ReferenceRect" type="ReferenceRect" parent="Control/HScrollBar/Container/Control"]
+layout_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+editor_only = false
+
+[node name="FullActionsMenu" type="Window" parent="."]
+mode = 2
+initial_position = 2
+visible = false
+
+[node name="FullActionsMenu" parent="FullActionsMenu" instance=ExtResource("2_kjkg1")]
+unique_name_in_owner = true
+
 [connection signal="toggled" from="Control/GridContainer/CheckButton" to="." method="_on_check_button_toggled"]
+[connection signal="toggled" from="Control/GridContainer/Window On_off" to="." method="_on_window_on_off_toggled"]

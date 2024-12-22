@@ -1,40 +1,70 @@
-[gd_scene load_steps=2 format=3 uid="uid://baqr1i4bahw"]
+[gd_scene load_steps=5 format=3 uid="uid://baqr1i4bahw"]
 
 [ext_resource type="PackedScene" uid="uid://bff0nn7eirfk6" path="res://Classes/DiagonalMenuBox/main_box.tscn" id="1_an6vk"]
+[ext_resource type="Script" path="res://Classes/Generic/SmoothScrollContainer.gd" id="1_bfdcq"]
+[ext_resource type="Script" path="res://Classes/FullActionsMenu/full_actions_menu.gd" id="1_mhvgk"]
+[ext_resource type="PackedScene" uid="uid://d1vmfn4blns00" path="res://Classes/DiagonalMenuBox/twitch_tab_box.tscn" id="4_efj7y"]
 
-[node name="FullActionsMenu" type="CanvasLayer"]
+[node name="FullActionsMenu" type="CanvasLayer" node_paths=PackedStringArray("menu_boxes_container")]
+script = ExtResource("1_mhvgk")
+menu_boxes_container = NodePath("MainPanel/ScrollContainer/Control/HBoxContainer")
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+[node name="MainPanel" type="Control" parent="."]
+layout_mode = 3
+anchor_left = 0.05
+anchor_top = 0.1
+anchor_right = 0.95
+anchor_bottom = 0.9
 grow_horizontal = 2
 grow_vertical = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-theme_override_constants/margin_top = 10
-theme_override_constants/margin_bottom = 10
 
-[node name="MainPanel" type="Panel" parent="MarginContainer"]
-unique_name_in_owner = true
+[node name="ScrollContainer" type="Container" parent="MainPanel" node_paths=PackedStringArray("h_slider", "control_ref")]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.9
+grow_horizontal = 2
+grow_vertical = 2
+mouse_force_pass_scroll_events = false
+script = ExtResource("1_bfdcq")
+h_slider = NodePath("../HScrollBar")
+control_ref = NodePath("Control")
+
+[node name="Control" type="Control" parent="MainPanel/ScrollContainer"]
 layout_mode = 2
 
-[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/MainPanel"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MainPanel/ScrollContainer/Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_bottom = 1.0
+grow_vertical = 2
+size_flags_horizontal = 6
+size_flags_vertical = 3
+
+[node name="MainBox" parent="MainPanel/ScrollContainer/Control/HBoxContainer" instance=ExtResource("1_an6vk")]
+layout_mode = 2
+
+[node name="TwitchTabBox" parent="MainPanel/ScrollContainer/Control/HBoxContainer" instance=ExtResource("4_efj7y")]
+layout_mode = 2
+
+[node name="ReferenceRect" type="ReferenceRect" parent="MainPanel/ScrollContainer/Control"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-mouse_force_pass_scroll_events = false
-horizontal_scroll_mode = 3
-vertical_scroll_mode = 0
+editor_only = false
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/MainPanel/ScrollContainer"]
-layout_mode = 2
-size_flags_horizontal = 6
-size_flags_vertical = 3
-alignment = 1
-
-[node name="MainBox" parent="MarginContainer/MainPanel/ScrollContainer/HBoxContainer" instance=ExtResource("1_an6vk")]
-layout_mode = 2
+[node name="HScrollBar" type="HScrollBar" parent="MainPanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.9
+anchor_right = 1.0
+anchor_bottom = 0.9
+offset_top = -4.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+max_value = 1.0
+page = 1.0

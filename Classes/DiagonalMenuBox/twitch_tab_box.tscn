@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://d1vmfn4blns00"]
+
+[ext_resource type="PackedScene" uid="uid://cfo2y5gmalqlv" path="res://Classes/Generic/DiagonalMenuBox.tscn" id="1_4gnbf"]
+[ext_resource type="Texture2D" uid="uid://r2yiyjbks43g" path="res://Assets/Container test.svg" id="2_65nm7"]
+
+[node name="TwitchTabBox" instance=ExtResource("1_4gnbf")]
+BoxID = 2
+
+[node name="TextureRect" parent="." index="0"]
+texture = ExtResource("2_65nm7")
+
+[node name="Label" parent="TextureRect" index="2"]
+text = "Twitch"

@@ -1,10 +1,11 @@
 [gd_scene load_steps=3 format=3 uid="uid://6e6rf6wxc2lq"]
 
-[ext_resource type="PackedScene" uid="uid://ij4jyaw7lana" path="res://Classes/Generic/DiagonalButton.tscn" id="1_rt5u1"]
+[ext_resource type="PackedScene" uid="uid://ij4jyaw7lana" path="res://Classes/Generic/DiagonalButtons/DiagonalButton.tscn" id="1_rt5u1"]
 [ext_resource type="Script" path="res://Classes/DiagonalButton/print_test.gd" id="2_5dyqv"]
 
-[node name="DiagonalButton" instance=ExtResource("1_rt5u1")]
+[node name="Print Test" node_paths=PackedStringArray("texture_button") instance=ExtResource("1_rt5u1")]
 script = ExtResource("2_5dyqv")
+texture_button = NodePath("Container/TextureButton")
 
 [node name="Label" parent="Container/TextureButton/VBoxContainer/Title" index="0"]
 text = "Print test"
